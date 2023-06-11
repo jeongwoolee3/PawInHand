@@ -49,7 +49,7 @@ const AnimalList = async (
         searchCondition3: searchCondition3,
       },
     });
-    const animalList: AnimalInfo = XmlToListObject(response.data);
+    const animalList = XmlToListObject(response.data);
     return Promise.resolve(animalList);
   } catch (e) {
     console.log(e);
