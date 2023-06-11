@@ -6,9 +6,9 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 const Background = styled.div`
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
