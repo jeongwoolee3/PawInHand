@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-  max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -16,13 +15,19 @@ const Background = styled.div`
   background-color: #ffff;
 `;
 const Header = styled.header`
+  display: flex;
   padding: 20px 0;
+  align-items: center;
+  width: 100vw;
   background-color: #333;
   color: #fff;
+  
 `;
 const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
+  align-self: center;
+  margin: 0 auto;
 `;
 
 const Button = styled.button`

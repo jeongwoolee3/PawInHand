@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ThumbnailDescription } from "./grid";
 
 const CardWrapper = styled.div`
   display: flex;
@@ -9,6 +10,7 @@ const CardWrapper = styled.div`
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
+	
 `;
 
 const CardImg = styled.img`
@@ -16,6 +18,11 @@ const CardImg = styled.img`
   height: auto;
   border-radius: 5px;
   margin-bottom: 10px;
+	transition: transform 0.3s ease;
+
+	:hover{
+		transform: scale(1.1);
+	}
 `;
 
 const DescriptionWrapper = styled.div`
@@ -40,23 +47,23 @@ const Card = ({
 }: {
   src: string;
   alt: string;
-  description: string;
+  description: ThumbnailDescription;
 }) => {
 
   return (
     <CardWrapper>
       <CardImg src={`http://www.daejeon.go.kr/`+src} alt={alt}/>
       <CardDescription>
-        <p className="strong">이름:</p> 
-				<p> 정우</p>
+        <p className="strong">입양상태 : </p> 
+				<p> {description.adoptionStatusCd}</p>
       </CardDescription>
       <CardDescription>
-				<p className="strong">이름:</p> 
-				<p> 2살</p>
+				<p className="strong">나이 : </p> 
+				<p> {description.age}</p>
       </CardDescription>
       <CardDescription>
-				<p className="strong">이름:</p>
-				<p> 남자</p>
+				<p className="strong">성별 : </p>
+				<p> {description.gender}</p>
       </CardDescription>
     </CardWrapper>
   );
