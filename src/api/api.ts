@@ -24,6 +24,7 @@ export interface AnimalInfo {
 }
 
 const baseUrl = import.meta.env.VITE_APP_API_URL;
+const itemUrl = import.meta.env.VITE_APP_API_ITEM_URL;
 const accessKey = import.meta.env.VITE_APP_API_KEY;
 
 function XmlToListObject(xml: any) {
@@ -55,5 +56,13 @@ const AnimalList = async (
     console.log(e);
   }
 };
+
+
+const AnimalItem =async (params:type) => {
+  try{
+    let response = awa
+  }
+  
+}
 
 export { AnimalList };

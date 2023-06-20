@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const Container = styled.div`
-  margin: 0 auto;
+  margin: 0 0;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -17,6 +18,7 @@ const Background = styled.div`
 const Header = styled.header`
   display: flex;
   padding: 20px 0;
+  justify-content: center;
   align-items: center;
   width: 100vw;
   background-color: #333;
@@ -27,7 +29,6 @@ const Title = styled.h1`
   font-size: 24px;
   font-weight: bold;
   align-self: center;
-  margin: 0 auto;
 `;
 
 const Button = styled.button`
@@ -46,7 +47,9 @@ const header = () => {
     <Container>
       <Background>
         <Header>
-          <Title>강아지 입양 서비스</Title>
+          {/* <Title>강아지 입양 서비스</Title> */}
+          <img src ='/assets/PawInHandLogo.png' height={'100px'}/>
+          <img src='/assets/puppy.png' width={'90px'} />
         </Header>
       </Background>
     </Container>
