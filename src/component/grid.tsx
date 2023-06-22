@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch, setAnimalItemList } from "../hooks/store";
+import { useDispatch} from "react-redux";
+import { AppDispatch, setAnimalItemList } from "../hooks/store";
 import styled from "styled-components";
 import Card from "./card";
 import { AnimalList, AnimalItem } from "../api/api";
@@ -15,10 +15,6 @@ const ImageGrid = styled.div`
 const GridContent = styled.div`
   display: flex;
   flex-direction: column;
-`;
-const ImageItem = styled.img`
-  width: 100%;
-  height: auto;
 `;
 
 export interface ThumbnailDescription {
@@ -35,10 +31,8 @@ const GridComponent = ({
   const [animalList, setAnimalList] = useState<AnimalInfo[] | undefined>(
     undefined
   );
-  const animalItemList = useSelector((state:RootState)=> state);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const [currentAnimalSeq, setCurrentAnimalSeq] = useState("");
 
 
   useEffect(() => {
@@ -51,7 +45,6 @@ const GridComponent = ({
   }, [currentPage]);
 
   const handleContentClick = (animalSeq: string) => {
-    setCurrentAnimalSeq(animalSeq);
     navigate(`/${animalSeq}`);
 
     const fetchData = async () => {
@@ -64,7 +57,7 @@ const GridComponent = ({
 
   const description = new Array<ThumbnailDescription>();
   animalList &&
-    animalList.map((animal, index) => {
+    animalList.map((animal) => {
       description.push({
         animalSeq: animal.animalSeq,
         adoptionStatusCd: adoptionStatusCd[Number(animal.adoptionStatusCd)],

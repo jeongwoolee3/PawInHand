@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 
@@ -25,22 +24,22 @@ const Header = styled.header`
   color: #fff;
   
 `;
-const Title = styled.h1`
-  font-size: 24px;
-  font-weight: bold;
-  align-self: center;
-`;
+// const Title = styled.h1`
+//   font-size: 24px;
+//   font-weight: bold;
+//   align-self: center;
+// `;
 
-const Button = styled.button`
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-`;
+// const Button = styled.button`
+//   display: inline-block;
+//   padding: 10px 20px;
+//   font-size: 16px;
+//   color: #fff;
+//   background-color: #007bff;
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+// `;
 
 const header = () => {
   return (

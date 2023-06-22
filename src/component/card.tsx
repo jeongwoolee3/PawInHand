@@ -24,10 +24,6 @@ const CardImg = styled.img`
 	}
 `;
 
-const DescriptionWrapper = styled.div`
-	display: flex;
-	flex-direction: row;
-`
 const CardDescription = styled.p`
 	display: flex;
   margin: 0;

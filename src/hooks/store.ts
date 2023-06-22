@@ -32,7 +32,7 @@ const animalItemListSlice = createSlice({
     initialState: initialState,
     reducers: {
         setAnimalItemList(state ,action: PayloadAction<AnimalInfo>) {
-          console.log(action.payload);
+          console.log(action.payload, state);
 
            state = action.payload
 
