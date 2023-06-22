@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from "./hooks/store.ts";
 import "./App.css";
 import styled from "styled-components";
-import { AnimalInfo } from "./types";
 import Header from "./component/header";
 import GridComponent from "./component/grid";
 import Pagination from "./component/pagination.tsx";
@@ -25,27 +26,29 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      <AppWrapper>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <GridComponent currentPage={currentPage} />
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={5}
-                  onPageChange={handlePageChange}
-                />
-              </>
-            }
-          ></Route>
-          <Route path="/:animalSeq" element={<Detail/>}></Route>
-        </Routes>
-      </AppWrapper>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <AppWrapper>
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <GridComponent currentPage={currentPage} />
+                  <Pagination
+                    currentPage={currentPage}
+                    totalPages={5}
+                    onPageChange={handlePageChange}
+                  />
+                </>
+              }
+            ></Route>
+            <Route path="/:animalSeq" element={<Detail/>}></Route>
+          </Routes>
+        </AppWrapper>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams,  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch, setAnimalItemList } from "../hooks/store";
 import styled from "styled-components";
 import Card from "./card";
-import { AnimalList } from "../api/api";
+import { AnimalList, AnimalItem } from "../api/api";
 import { adoptionStatusCd, gender, AnimalInfo } from "../types";
 
 const ImageGrid = styled.div`
@@ -25,7 +27,6 @@ export interface ThumbnailDescription {
   age: string;
   gender: string;
 }
-
 const GridComponent = ({
   currentPage,
 }: {
@@ -34,15 +35,16 @@ const GridComponent = ({
   const [animalList, setAnimalList] = useState<AnimalInfo[] | undefined>(
     undefined
   );
-  const { animalSeq } = useParams();
+  const animalItemList = useSelector((state:RootState)=> state);
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const [currentAnimalSeq, setCurrentAnimalSeq] = useState("");
+
 
   useEffect(() => {
     const fetchData = async () => {
       const list = await AnimalList(9, currentPage, 1);
       setAnimalList(list);
-      console.log(list);
     };
 
     fetchData();
@@ -51,6 +53,13 @@ const GridComponent = ({
   const handleContentClick = (animalSeq: string) => {
     setCurrentAnimalSeq(animalSeq);
     navigate(`/${animalSeq}`);
+
+    const fetchData = async () => {
+      const item = await AnimalItem(animalSeq);
+      dispatch(setAnimalItemList(item))
+      console.log(item["age"])
+    };
+    fetchData();
   };
 
   const description = new Array<ThumbnailDescription>();

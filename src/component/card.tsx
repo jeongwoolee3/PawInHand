@@ -10,7 +10,7 @@ const CardWrapper = styled.div`
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-	
+
 `;
 
 const CardImg = styled.img`
