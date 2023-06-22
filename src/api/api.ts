@@ -37,7 +37,7 @@ const AnimalList = async (
     const animalList = XmlToListObject(response.data);
     return Promise.resolve(animalList);
   } catch (e) {
-    console.log(e);
+    console.log('여기잘못?', e);
   }
 };
 
