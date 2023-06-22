@@ -38,7 +38,7 @@ function App() {
                   <GridComponent currentPage={currentPage} />
                   <Pagination
                     currentPage={currentPage}
-                    totalPages={5}
+                    totalPages={10}
                     onPageChange={handlePageChange}
                   />
                 </>
