@@ -19,7 +19,7 @@ const Detail = () => {
   const { animalSeq } = useParams();
   return (
     <Wapper>
-      <h3>{animalSeq}번 페이지 입니다.</h3>
+      <h3>일련번호: {animalSeq}</h3>
       <img src={`http://www.daejeon.go.kr/` + ItemData.itemList.filePath} />
       <ExampleTable />
     </Wapper>
